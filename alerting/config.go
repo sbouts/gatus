@@ -8,6 +8,7 @@ import (
 	"github.com/TwinProduction/gatus/alerting/provider/mattermost"
 	"github.com/TwinProduction/gatus/alerting/provider/messagebird"
 	"github.com/TwinProduction/gatus/alerting/provider/pagerduty"
+	"github.com/TwinProduction/gatus/alerting/provider/rocketchat"
 	"github.com/TwinProduction/gatus/alerting/provider/slack"
 	"github.com/TwinProduction/gatus/alerting/provider/teams"
 	"github.com/TwinProduction/gatus/alerting/provider/telegram"
@@ -30,6 +31,9 @@ type Config struct {
 
 	// PagerDuty is the configuration for the pagerduty alerting provider
 	PagerDuty *pagerduty.AlertProvider `yaml:"pagerduty"`
+
+	// RocketChat is the configuration for the rocketchat alerting provider
+	RocketChat *rocketchat.AlertProvider `yaml:"rocketchat"`
 
 	// Slack is the configuration for the slack alerting provider
 	Slack *slack.AlertProvider `yaml:"slack"`
@@ -77,6 +81,12 @@ func (config Config) GetAlertingProviderByAlertType(alertType alert.Type) provid
 			return nil
 		}
 		return config.PagerDuty
+	case alert.TypeRocketChat:
+		if config.RocketChat == nil {
+			// Since we're returning an interface, we need to explicitly return nil, even if the provider itself is nil
+			return nil
+		}
+		return config.RocketChat
 	case alert.TypeSlack:
 		if config.Slack == nil {
 			// Since we're returning an interface, we need to explicitly return nil, even if the provider itself is nil

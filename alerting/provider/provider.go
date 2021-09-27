@@ -7,6 +7,7 @@ import (
 	"github.com/TwinProduction/gatus/alerting/provider/mattermost"
 	"github.com/TwinProduction/gatus/alerting/provider/messagebird"
 	"github.com/TwinProduction/gatus/alerting/provider/pagerduty"
+	"github.com/TwinProduction/gatus/alerting/provider/rocketchat"
 	"github.com/TwinProduction/gatus/alerting/provider/slack"
 	"github.com/TwinProduction/gatus/alerting/provider/teams"
 	"github.com/TwinProduction/gatus/alerting/provider/telegram"
@@ -55,6 +56,7 @@ var (
 	_ AlertProvider = (*mattermost.AlertProvider)(nil)
 	_ AlertProvider = (*messagebird.AlertProvider)(nil)
 	_ AlertProvider = (*pagerduty.AlertProvider)(nil)
+	_ AlertProvider = (*rocketchat.AlertProvider)(nil)
 	_ AlertProvider = (*slack.AlertProvider)(nil)
 	_ AlertProvider = (*teams.AlertProvider)(nil)
 	_ AlertProvider = (*telegram.AlertProvider)(nil)

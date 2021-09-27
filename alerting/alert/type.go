@@ -20,6 +20,9 @@ const (
 	// TypePagerDuty is the Type for the pagerduty alerting provider
 	TypePagerDuty Type = "pagerduty"
 
+	// TypeRocketChat is the Type for the rocketchat alerting provider
+	TypeRocketChat Type = "rocketchat"
+
 	// TypeSlack is the Type for the slack alerting provider
 	TypeSlack Type = "slack"
 

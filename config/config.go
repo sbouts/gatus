@@ -274,6 +274,7 @@ func validateAlertingConfig(alertingConfig *alerting.Config, services []*core.Se
 		alert.TypeMattermost,
 		alert.TypeMessagebird,
 		alert.TypePagerDuty,
+		alert.TypeRocketChat,
 		alert.TypeSlack,
 		alert.TypeTeams,
 		alert.TypeTelegram,
